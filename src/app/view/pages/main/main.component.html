@@ -1,0 +1,13 @@
+<aside>
+  <h1>Avanade Notes</h1>
+  <form [formGroup]="noteForm" id="form-notes" (ngSubmit)="addNote()" (keypress)="sendByKey($event)">
+    <div class="input-group">
+      <label>Nota:</label>
+      <textarea type="text" formControlName="text" id="input-note" required placeholder="Digite a nota"></textarea>
+    </div>
+    <button>Salvar</button>
+  </form>
+</aside>
+<section>
+  <app-note *ngFor="let note of notes" [note]="note" (notify)="deleteNote(note.id)"></app-note>
+</section>
